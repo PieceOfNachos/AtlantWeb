@@ -1,0 +1,233 @@
+.questions{
+    padding: 200px 0px;
+    &__column{
+
+    }
+    &__item{
+        padding: 30px 10px;
+        position: relative;
+        & h3{
+            font-size: 24px;
+            line-height: 36px;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        & button{
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            &::before{
+                content: '';
+                background-color: #1a1a1a;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 30px;
+                height: 5px;
+                transition: 0.3s;
+            
+            }
+            &::after{
+                content: '';
+                background-color: #1a1a1a;
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 30px;
+                width: 5px;
+                transition: 0.3s;
+            }
+            &:hover{
+                &::before,&::after{
+                    content: '';
+                    transform: rotateZ(180deg) translateY(50%);
+                }
+                background-color: transparent;
+
+            }
+        }
+        
+        &::before{
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: rgb(198, 195, 195);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        & p{
+            color: #1a1a1a;
+            font-size: 18px;
+            line-height: 32px;
+            margin-bottom: 20px;
+            & a{
+                color: hsl(209,100%,37.5%);
+                &:hover{
+                   color: hsl(206,100%,40%);
+                }
+                &:visited{
+                    color: hsl(206,100%,52%);
+                }
+            }
+            
+        }
+    }
+    &__answer{
+        display: none;
+        position: relative;
+        &.visible{
+            display: block;
+            
+        }
+        
+    }
+    &__title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+    &__review{
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        & p{
+            display: inline-block;
+            color: #505050;
+            font-size: 16px;
+            line-height: 20px;
+            margin-right: 20px;
+            margin-bottom: 0px;
+        }
+    }
+}
+/* .button__first{
+    position: relative;
+    &::before{
+        content: '';
+        background-image: url("../../img/review/check.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 20px;
+    }
+
+}
+.button__second{
+    position: relative;
+    &::before{
+        content: '';
+        background-image: url("../../img/review/no-entry.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 50px;
+    }
+}
+.button__first, .button__second{
+    &:hover{
+        &::before{
+            width: 24px;
+        }
+    }
+    &::before{
+        transition: 0.3s;
+        
+    }
+} */
+#answ{
+    position: relative;
+    padding-bottom: 20px;
+    &::after{
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: rgb(154, 154, 154);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+.rating-half li {
+    display: block;
+    width: 10px;
+    height: 20px;
+    float: right;
+    text-indent: -9999px;
+    cursor: pointer;
+    background: url("../../img/stars.png") no-repeat;
+}
+.rating-half li.current {
+display: none;
+}
+.rating-half.show-current li {
+    cursor: default;
+  }
+  .rating-half li:nth-child(2n+1) {
+    background-position: -10px 0;
+  }
+
+.rating-half.show-current{
+position: relative;
+}
+
+.rating-half.show-current li.current {
+position: absolute;
+top: 0;
+left: 0;
+display: block;
+width: 0;
+background-position: 0 -60px;
+background-repeat: repeat-x;
+}
+.rating-half.show-current li.current:hover,
+.rating-half.show-current li.current:hover ~ li {
+background-position: 0 -60px;
+}
+
+.rating-half.show-current li.current span {
+display: block;
+height: 20px;
+width: 0;
+background: inherit;
+background-position: 0 -40px;
+}
+
+/* нечетные элементы */
+.rating-half li:nth-child(odd) {
+background-position: -10px 0;
+}
+
+/* четные при наведении и все предыдущие четные*/
+.rating-half li:nth-child(even):hover,
+.rating-half li:nth-child(even):hover ~  li:nth-child(even){
+background-position: 0 -20px;
+}
+
+/* четные при наведении и все предыдущие нечетные*/
+.rating-half li:nth-child(even):hover ~  li:nth-child(odd){
+background-position: -10px -20px;
+}
+
+/* нечетные при наведении и все предыдущие нечетные*/
+.rating-half li:nth-child(odd):hover,
+.rating-half li:nth-child(odd):hover ~ li:nth-child(odd) {
+background-position: -10px -20px;
+}
+
+/* нечетные при наведении и все предыдущие четные*/
+.rating-half li:nth-child(odd):hover ~ li:nth-child(even) {
+background-position: 0 -20px;
+}
